@@ -1,0 +1,28 @@
+
+{% block head %}
+
+    <title>Vaccine Alerts</title>
+
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1> Vaccine Alerts cowin </h1>
+    <div class="form">
+        <form action="/result" method="POST">
+            <label for="pincode"> Enter a Valid Pincode </label>
+            <input type="text" name="pincode" id="pincode">
+
+            <label for="age"> Choose age limit </label>
+            <select id="age" name="age">
+                <option value="18">18</option>
+                <option value="45">45</option>
+            </select>
+
+            <label for="mail_id"> Enter your Email address </label>
+            <input type="text" name="mail_id" id="mail_id">
+            <input type="submit" value = "Submit">
+        </form>
+    </div>
+</div>
+{% endblock %}
