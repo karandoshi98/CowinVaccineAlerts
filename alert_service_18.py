@@ -53,7 +53,12 @@ while True:
             headers = {
                 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.76 Safari/537.36'}
             response = appointment_pin_session.get(url_pincode, headers=headers)
-            response = response.json()
+            print(response)
+            try:
+                response = response.json()
+            except Exception as e:
+                print(e)
+            print(response)
             if response['sessions'] == []:
                 print("No slots available at this moment")
             for center in response['sessions']:
