@@ -51,14 +51,16 @@ while True:
         url_pincode = "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?pincode=" + PINCODE + "&date=" + DATE
         with requests.session() as appointment_pin_session:
             headers = {
-                'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.76 Safari/537.36'}
+                "User-Agent": "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.76 Safari/537.36"
+                      }
             response = appointment_pin_session.get(url_pincode, headers=headers)
             print(response)
             try:
                 response = response.json()
             except Exception as e:
                 print(e)
-            print(response)
+            print(response.get("sessions"))
+            print(response["sessions"])
             if response['sessions'] == []:
                 print("No slots available at this moment")
             for center in response['sessions']:

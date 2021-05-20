@@ -58,6 +58,7 @@ while True:
                 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.76 Safari/537.36'}
             response = appointment_pin_session.get(url_pincode, headers=headers)
             response = response.json()
+            print(response)
             if response['sessions'] == []:
                 print("No slots available at this moment")
             for center in response['sessions']:
@@ -79,7 +80,7 @@ while True:
                             to_addrs=mail_to,
                             msg=message_string
                         )
-                        print("Mail sent to "+mail_to+" for pincode "+PINCODE+" for age above 45")
+                        print("Mail sent to "+str(mail_to)+" for pincode "+str(PINCODE)+" for age above 45")
                 else:
                     print("No slots available for above 45")
     time.sleep(60)
